@@ -21,12 +21,7 @@ function printDataType(value) {
     
         if (typeof value === "object" || typeof value === "function") 
     {
-            for (x = 0, len = dtypes.length; x < len; x++) 
-        {
-            if (value instanceof dtypes[x]) {
-                return dtypes[x];
-            }
-        }
+            for (x = 0, len = dtypes.length; x < len; x++);
     }
     
     return typeof value;
@@ -71,9 +66,11 @@ var secondmax = numbers[0];
 } console.log(min,max,secondmax,secondmin)
 } 
 getNumbers(data)
+
 // new task 5 
 // Create two functions. First one should receive two parameters, an array of numbers, and a single number. 
-//Then it should call the second function, and pass the same array and number into it. The second function should, based on an array and number provided, find all numbers in an array which are bigger then a provided number, and create an array of those numbers. 
+//Then it should call the second function, and pass the same array and number into it. 
+//The second function should, based on an array and number provided, find all numbers in an array which are bigger then a provided number, and create an array of those numbers. 
 //Then it should console log result.
 
 var dataArray=[24,14,54,36,12];
