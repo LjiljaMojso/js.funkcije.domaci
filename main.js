@@ -19,11 +19,6 @@ function printDataType(value) {
 
     var dtypes = [Function, RegExp, Number, String, Boolean, Object], x, len;
     
-        if (typeof value === "object" || typeof value === "function") 
-    {
-            for (x = 0, len = dtypes.length; x < len; x++);
-    }
-    
     return typeof value;
 }
 console.log(printDataType(36));
@@ -144,25 +139,41 @@ console.log(multiplyNumber);
 // Then, the second function that is passed in the first one should be called, and it should receive this new array we created. 
 // It should then delete the biggest number in the array, and console log the result (array).
 
-
 var numbers = [15, 35, 46, 23, 15, 17, 23, 24, 35, 12, 72, 64, 35, 22, 64];
 var uniqueNumbersInArray= removeDuplicates(numbers, findBiggestNumber);
 
+function removeDuplicates(a,b) {
+    var unique = [];
+    for (var i = 0; i < numbers.length; i++) {
+        for (var j=0;j < numbers.length; j++) {
+            if (i == j) {
+                continue;
+            }
+            if (numbers[i] == numbers[j]) {
+                break
+            }
 
-function removeDuplicates(numbers){
-      var unique=[...new Set(numbers)];
-     return unique;
+            
+        }
+        if (j == numbers.length) {
+            unique[unique.length] = numbers[i]
+        }
+        
+    }
+    console.log(unique)
 }
-
-function findBiggestNumber(array) {
-    var arrayMax = array[0];
-    var newArray = [];
+function findBiggestNumber(unique) {
+    var arrayMax = unique[0];
     for (var i = 0; i < unique.length; i++) {
-        if (array[i] > arrayMax){
-            arr = array[i];
-            newArray=i;
+        if (unique[i] > arrayMax){
+            arrayMax = unique[i];
         } 
-    return newArray;
+    return arrayMax;
 }
 }
-console.log(uniqueNumbersInArray)
+
+
+
+
+
+
